@@ -21,7 +21,7 @@
   <body>
     <h1 class="form-title">FORM PICKUP WILAYAH BARAT</h1>
     <div class="container">
-      <form name="#">
+      <form name="#" action="https://script.google.com/macros/s/AKfycbyxmSpHry0izzjK4z1Va8vRsMXfz95om48-5HPoGhUVWOefcZZoldGKacs6wVGFY3yY/exec" method="post">
         <div class="form-group">
           <label for="cabang" class="form-label"><b>CABANG</b></label>
           <div class="radio-group">
@@ -161,39 +161,46 @@
       </form>
     </div>
     <script>
-      $(document).ready(function () {
-        // Load driver and customer data from Google Sheets on page load
-        loadDatalist("driver", "DriverDataRange"); // Replace "DriverDataRange" with your actual range
-        loadDatalist("customer", "CustomerDataRange"); // Replace "CustomerDataRange" with your actual range
+      async function fetchDataFromAPI() {
+  try {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbyxmSpHry0izzjK4z1Va8vRsMXfz95om48-5HPoGhUVWOefcZZoldGKacs6wVGFY3yY/exec?action=getDropdown');
+    const jsonData = await response.json();
+    return jsonData;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return null;
+  }
+}
 
-        // Form submission handling
-        $("#pickupForm").submit(function (event) {
-          event.preventDefault();
-          submitFormToGoogleSheets($(this).serialize());
-        });
+async function fillDatalists() {
+  const jsonData = await fetchDataFromAPI();
 
-        // Function to load datalist options from Google Sheets
-        function loadDatalist(datalistId, range) {
-          google.script.run
-            .withSuccessHandler(function (data) {
-              $("#" + datalistId).empty();
-              data.forEach(function (option) {
-                $("#" + datalistId).append("<option value='" + option + "'>");
-              });
-            })
-            .getDatalistOptions(range);
-        }
+  if (jsonData) {
+    // Mengambil datalist dan data yang diperlukan
+    const datalist1 = document.getElementById('driver');
+    const datalist2 = document.getElementById('customer');
+    const data1 = jsonData.data1;
+    const data2 = jsonData.data2;
 
-        // Function to submit form data to Google Sheets
-        function submitFormToGoogleSheets(formData) {
-          google.script.run
-            .withSuccessHandler(function (response) {
-              alert("Form submitted successfully!");
-              // You can add further actions upon successful submission if needed
-            })
-            .submitForm(formData);
-        }
-      });
+    // Mengisi datalist pertama
+    data1.forEach((item) => {
+      const option = document.createElement('option');
+      option.value = item[0];
+      datalist1.appendChild(option);
+    });
+
+    // Mengisi datalist kedua
+    data2.forEach((item) => {
+      const option = document.createElement('option');
+      option.value = item[0];
+      datalist2.appendChild(option);
+    });
+  }
+}
+
+// Panggil fungsi untuk mengisi datalist saat halaman dimuat
+window.onload = fillDatalists;
+
     </script>
   </body>
 </html>
