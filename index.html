@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Pickup Wilayah Barat</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      .container {
+        background-color: aliceblue;
+        border: 900px;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="form-title">FORM PICKUP WILAYAH BARAT</h1>
+    <div class="container">
+      <form name="#">
+        <div class="form-group">
+          <label for="cabang" class="form-label"><b>CABANG</b></label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              id="cabang"
+              name="wilayah"
+              value="JABODETABEK"
+            />
+            <label for="cabang">JABODETABEK</label><br />
+            <input type="radio" id="cabang1" name="wilayah" value="MEDAN" />
+            <label for="cabang1">MEDAN</label><br />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="tanggal" class="form-label"><b>TANGGAL PICKUP</b></label
+          ><br />
+          <input type="date" id="tanggal" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="driver1" class="form-label"><b>NAMA DRIVER</b></label
+          ><br />
+          <input
+            list="driver"
+            id="driver1"
+            name="driver"
+            class="form-control"
+            placeholder="Pilih Nama Driver"
+            required
+          />
+          <datalist id="driver"> </datalist>
+        </div>
+        <div class="form-group">
+          <label for="driver2" class="form-label"
+            ><b>NAMA ASISTEN DRIVER</b></label
+          ><br />
+          <input
+            list="driver"
+            id="driver2"
+            name="driver"
+            class="form-control"
+            placeholder="Pilih Nama Driver 2"
+            required
+          />
+          <datalist id="driver"> </datalist>
+        </div>
+        <div class="form-group">
+          <label for="customer" class="form-label"><b>NAMA CUSTOMER</b></label
+          ><br />
+          <input
+            list="customer"
+            id="customer"
+            name="customer"
+            class="form-control"
+            placeholder="Pilih Customer"
+            required
+          />
+          <datalist id="customer"> </datalist>
+        </div>
+        <div class="form-group">
+          <label for="lokasi" class="form-label"><b>LOKASI PICKUP</b></label
+          ><br />
+          <input type="text" id="lokasi" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="incust" class="form-label"
+            ><b>JAM TIBA DI CUSTOMER</b></label
+          ><br />
+          <input type="time" id="incust" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="outcust" class="form-label"
+            ><b>JAM KELUAR DARI CUSTOMER</b></label
+          ><br />
+          <input type="time" id="outcust" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="jenispickup" class="form-label"><b>JENIS PICKUP</b></label
+          ><br />
+          <div class="radio-group" id="jenispickup">
+            <input type="radio" id="retur" name="jenis-pickup" />
+            <label for="retur"
+              >RETUR ( PICK UP DARI TOKO TUJUAN GUDANG CUSTOMER)</label
+            ><br />
+            <input type="radio" id="reguler" name="jenis-pickup" />
+            <label for="reguler"
+              >REGULER ( PICK UP DARI GUDANG CUSTOMER TUJUAN TOKO
+              CUSTOMER)</label
+            ><br />
+            <input type="radio" id="mutasi" name="jenis-pickup" />
+            <label for="mutasi"
+              >MUTASI ( PICK UP DARI TOKO TUJUAN TOKO CUSTOMER)</label
+            >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="koli" class="form-label"
+            ><b>JUMLAH TOTAL KOLI FISIK</b></label
+          ><br />
+          <input type="number" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="kesesuaian" class="form-label"
+            ><b>JUMLAH KOLI FISIK SESUAI DENGAN SURAT JALAN</b></label
+          ><br />
+          <div class="radio-group" id="kesesuaian">
+            <input type="radio" id="sesuai" name="kesesuaian" />
+            <label for="sesuai">SESUAI</label><br />
+            <input type="radio" id="tidaksesuai" name="kesesuaian" />
+            <label for="tidaksesuai">TIDAK SESUAI</label><br />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="keterangan" class="form-label"
+            ><b>KETERANGAN APABILA TIDAK SESUAI</b></label
+          ><br />
+          <input type="text" id="keterangan" class="form-control" /><br />
+        </div>
+        <div class="form-group">
+          <label for="formpickup" class="form-label"
+            ><b
+              >FOTO FORM PICK UP YANG SUDAH DI TTD OLEH CUSTOMER & DRIVER PICK
+              UP</b
+            ></label
+          ><br />
+          <input
+            type="file"
+            id="formpickup"
+            class="form-control"
+            accept="image/*"
+          /><br /><br />
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" value="Kirim" />
+          <input type="reset" class="btn btn-secondary" value="Reset Form" />
+        </div>
+      </form>
+    </div>
+    <script>
+      $(document).ready(function () {
+        // Load driver and customer data from Google Sheets on page load
+        loadDatalist("driver", "DriverDataRange"); // Replace "DriverDataRange" with your actual range
+        loadDatalist("customer", "CustomerDataRange"); // Replace "CustomerDataRange" with your actual range
+
+        // Form submission handling
+        $("#pickupForm").submit(function (event) {
+          event.preventDefault();
+          submitFormToGoogleSheets($(this).serialize());
+        });
+
+        // Function to load datalist options from Google Sheets
+        function loadDatalist(datalistId, range) {
+          google.script.run
+            .withSuccessHandler(function (data) {
+              $("#" + datalistId).empty();
+              data.forEach(function (option) {
+                $("#" + datalistId).append("<option value='" + option + "'>");
+              });
+            })
+            .getDatalistOptions(range);
+        }
+
+        // Function to submit form data to Google Sheets
+        function submitFormToGoogleSheets(formData) {
+          google.script.run
+            .withSuccessHandler(function (response) {
+              alert("Form submitted successfully!");
+              // You can add further actions upon successful submission if needed
+            })
+            .submitForm(formData);
+        }
+      });
+    </script>
+  </body>
+</html>
