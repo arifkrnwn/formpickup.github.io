@@ -5,42 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Pickup Wilayah Barat</title>
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <style>
-      .container {
-        background-color: aliceblue;
-        border: 900px;
-        border-radius: 20px;
-      }
-    </style>
     <script src="main.js" defer></script>
   </head>
   <body>
     <h1 class="form-title">FORM PICKUP WILAYAH BARAT</h1>
     <div class="container">
-      <form id="formpickup">
+      <form name="formpickup">
         <div class="form-group">
           <label for="cabang" class="form-label"><b>CABANG</b></label>
           <div class="radio-group">
-            <input
-              type="radio"
-              id="cabang"
-              name="wilayah"
-              value="JABODETABEK"
-            />
+            <input type="radio" id="cabang" name="CABANG" value="JABODETABEK" />
             <label for="cabang">JABODETABEK</label><br />
-            <input type="radio" id="cabang1" name="wilayah" value="MEDAN" />
+            <input type="radio" id="cabang1" name="CABANG" value="MEDAN" />
             <label for="cabang1">MEDAN</label><br />
           </div>
         </div>
         <div class="form-group">
           <label for="tanggal" class="form-label"><b>TANGGAL PICKUP</b></label
           ><br />
-          <input type="date" id="tanggal" class="form-control" required />
+          <input
+            type="date"
+            id="tanggal"
+            name="TANGGAL"
+            class="form-control"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="driver1" class="form-label"><b>NAMA DRIVER</b></label
@@ -48,7 +42,7 @@
           <input
             list="driver"
             id="driver1"
-            name="driver"
+            name="NAMA DRIVER 1"
             class="form-control"
             placeholder="Pilih Nama Driver"
             required
@@ -62,7 +56,7 @@
           <input
             list="driver"
             id="driver2"
-            name="driver"
+            name="NAMA DRIVER 2"
             class="form-control"
             placeholder="Pilih Nama Driver 2"
             required
@@ -73,46 +67,79 @@
           <label for="customer" class="form-label"><b>NAMA CUSTOMER</b></label
           ><br />
           <input
-            list="customer"
-            id="customerpu"
-            name="customerpu"
+            list="customerpu"
+            id="customer"
+            name="CUSTOMER"
             class="form-control"
             placeholder="Pilih Customer"
             required
           />
-          <datalist id="customer"> </datalist>
+          <datalist id="customerpu"> </datalist>
         </div>
         <div class="form-group">
           <label for="lokasi" class="form-label"><b>LOKASI PICKUP</b></label
           ><br />
-          <input type="text" id="lokasi" class="form-control" required />
+          <input
+            type="text"
+            id="lokasi"
+            name="LOKASI PICKUP"
+            class="form-control"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="incust" class="form-label"
             ><b>JAM TIBA DI CUSTOMER</b></label
           ><br />
-          <input type="time" id="incust" class="form-control" required />
+          <input
+            type="time"
+            id="incust"
+            name="JAM IN"
+            class="form-control"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="outcust" class="form-label"
             ><b>JAM KELUAR DARI CUSTOMER</b></label
           ><br />
-          <input type="time" id="outcust" class="form-control" required />
+          <input
+            type="time"
+            id="outcust"
+            name="JAM OUT"
+            class="form-control"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="jenispickup" class="form-label"><b>JENIS PICKUP</b></label
           ><br />
           <div class="radio-group" id="jenispickup">
-            <input type="radio" id="retur" name="jenis-pickup" />
+            <input
+              type="radio"
+              id="retur"
+              name="JENIS PICKUP"
+              value="RETUR ( PICK UP DARI TOKO TUJUAN GUDANG CUSTOMER)"
+            />
             <label for="retur"
               >RETUR ( PICK UP DARI TOKO TUJUAN GUDANG CUSTOMER)</label
             ><br />
-            <input type="radio" id="reguler" name="jenis-pickup" />
+            <input
+              type="radio"
+              id="reguler"
+              name="JENIS PICKUP"
+              value="REGULER ( PICK UP DARI GUDANG CUSTOMER TUJUAN TOKO CUSTOMER)"
+            />
             <label for="reguler"
               >REGULER ( PICK UP DARI GUDANG CUSTOMER TUJUAN TOKO
               CUSTOMER)</label
             ><br />
-            <input type="radio" id="mutasi" name="jenis-pickup" />
+            <input
+              type="radio"
+              id="mutasi"
+              name="JENIS PICKUP"
+              value="MUTASI ( PICK UP DARI TOKO TUJUAN TOKO CUSTOMER)"
+            />
             <label for="mutasi"
               >MUTASI ( PICK UP DARI TOKO TUJUAN TOKO CUSTOMER)</label
             >
@@ -122,16 +149,27 @@
           <label for="koli" class="form-label"
             ><b>JUMLAH TOTAL KOLI FISIK</b></label
           ><br />
-          <input type="number" id="koli" class="form-control" required />
+          <input
+            type="number"
+            id="koli"
+            name="KOLI"
+            class="form-control"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="kesesuaian" class="form-label"
             ><b>JUMLAH KOLI FISIK SESUAI DENGAN SURAT JALAN</b></label
           ><br />
-          <div class="radio-group">
-            <input type="radio" id="sesuai" name="kesesuaian" />
+          <div class="radio-group" id="kesesuaian">
+            <input type="radio" id="sesuai" name="KESESUAIAN" value="SESUAI" />
             <label for="sesuai">SESUAI</label><br />
-            <input type="radio" id="tidaksesuai" name="kesesuaian" />
+            <input
+              type="radio"
+              id="tidaksesuai"
+              name="KESESUAIAN"
+              value="TIDAK SESUAI"
+            />
             <label for="tidaksesuai">TIDAK SESUAI</label><br />
           </div>
         </div>
@@ -139,7 +177,12 @@
           <label for="keterangan" class="form-label"
             ><b>KETERANGAN APABILA TIDAK SESUAI</b></label
           ><br />
-          <input type="text" id="keterangan" class="form-control" /><br />
+          <input
+            type="text"
+            id="keterangan"
+            name="KETERANGAN APABILA TIDAK SESUAI"
+            class="form-control"
+          /><br />
         </div>
         <div class="form-group">
           <label for="bukti" class="form-label"
@@ -151,15 +194,45 @@
           <input
             type="file"
             id="bukti"
+            name="FOTO FORM PICK UP YANG SUDAH DI TTD OLEH CUSTOMER & DRIVER PICK UP"
             class="form-control"
             accept="image/*"
           /><br /><br />
         </div>
+        <div
+          class="alert alert-succes alert-dismissible fade show d-none"
+          role="alert"
+        >
+          <strong>Terima kasih!</strong> Form pickup sudah terkirim.
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
         <div class="form-group">
-          <input type="submit" class="btn btn-primary" value="Kirim" />
-          <input type="reset" class="btn btn-secondary" value="Reset Form" />
+          <button type="submit" class="btn btn-primary btn-kirim">
+            Kirim Form
+          </button>
+          <button
+            class="btn btn-primary btn-loading d-none"
+            type="button"
+            disabled
+          >
+            <span
+              class="spinner-border spinner-border-sm"
+              aria-hidden="true"
+            ></span>
+            <span role="status">Loading...</span>
+          </button>
         </div>
       </form>
     </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

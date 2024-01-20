@@ -1,7 +1,7 @@
 async function fetchDataFromAPI() {
   try {
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbyxmSpHry0izzjK4z1Va8vRsMXfz95om48-5HPoGhUVWOefcZZoldGKacs6wVGFY3yY/exec?action=getDropdown"
+      "https://script.google.com/macros/s/AKfycbxo2CAGPtgDEoHrPkV-kga0TC83FKu7u47Odp5UC09P39yP-Hn6U2Gzy0on8Uj3jueL/exec?action=getDropdown"
     );
     const jsonData = await response.json();
     return jsonData;
@@ -16,7 +16,7 @@ async function fillDatalists() {
 
   if (jsonData) {
     // Mengambil datalist dan data yang diperlukan
-    const datalist1 = document.getElementById("customer");
+    const datalist1 = document.getElementById("customerpu");
     const datalist2 = document.getElementById("driver");
     const data1 = jsonData.data1;
     const data2 = jsonData.data2;
@@ -40,40 +40,26 @@ async function fillDatalists() {
 // Panggil fungsi untuk mengisi datalist saat halaman dimuat
 window.onload = fillDatalists;
 
-document
-  .getElementById("formpickup")
-  .addEventListener("submit", async function (event) {
-    // Prevent default form submission
-    event.preventDefault();
+const scriptURL =
+  "https://script.google.com/macros/s/AKfycbxo2CAGPtgDEoHrPkV-kga0TC83FKu7u47Odp5UC09P39yP-Hn6U2Gzy0on8Uj3jueL/exec";
+const form = document.forms["formpickup"];
+const btnKirim = document.querySelector(".btn-kirim");
+const btnLoading = document.querySelector(".btn-loading");
+const myalert = document.querySelector(".alert");
 
-    // Get form data
-    const formData = new FormData(this);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  btnLoading.classList.toggle("d-none");
+  btnKirim.classList.toggle("d-none");
+  fetch(scriptURL, { method: "POST", body: new FormData(form) })
+    .then((response) => {
+      btnKirim.classList.toggle("d-none");
+      btnLoading.classList.toggle("d-none");
+      myalert.classList.toggle("d-none");
 
-    try {
-      // Send data to the API using fetch
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyxmSpHry0izzjK4z1Va8vRsMXfz95om48-5HPoGhUVWOefcZZoldGKacs6wVGFY3yY/exec",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      form.reset();
 
-      if (!response.ok) {
-        throw new Error("Gagal mengirim data"); // Throw error for non-200 status codes
-      }
-
-      // Handle successful response
-      const responseData = await response.json();
-      console.log(responseData); // Log response data for debugging
-
-      // Example: Display a success message to the user
-      alert("Data berhasil dikirim!");
-    } catch (error) {
-      // Handle errors
-      console.error("Error:", error); // Log error for debugging
-
-      // Example: Display an error message to the user
-      alert("Terjadi kesalahan saat mengirim data");
-    }
-  });
+      console.log("Success!", response);
+    })
+    .catch((error) => console.error("Error!", error.message));
+});
