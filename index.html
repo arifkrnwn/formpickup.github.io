@@ -13,9 +13,9 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <h1 class="form-title">FORM PICKUP WILAYAH BARAT</h1>
-    <div class="container">
-      <form name="formpickup">
+    <h1 class="form-title text-center">FORM PICKUP WILAYAH BARAT</h1>
+    <div class="container-md">
+      <form name="formpickup" class="need-validation">
         <div class="form-group">
           <label for="cabang" class="form-label"><b>CABANG</b></label>
           <div class="radio-group">
@@ -44,7 +44,7 @@
             id="driver1"
             name="NAMA DRIVER 1"
             class="form-control"
-            placeholder="Pilih Nama Driver"
+            placeholder="Nama Driver"
             required
           />
           <datalist id="driver"> </datalist>
@@ -58,7 +58,7 @@
             id="driver2"
             name="NAMA DRIVER 2"
             class="form-control"
-            placeholder="Pilih Nama Driver 2"
+            placeholder="Nama Driver 2"
             required
           />
           <datalist id="driver"> </datalist>
@@ -71,7 +71,7 @@
             id="customer"
             name="CUSTOMER"
             class="form-control"
-            placeholder="Pilih Customer"
+            placeholder="Nama Customer yang dipickup"
             required
           />
           <datalist id="customerpu"> </datalist>
@@ -84,6 +84,7 @@
             id="lokasi"
             name="LOKASI PICKUP"
             class="form-control"
+            placeholder="Lokasi Pickup"
             required
           />
         </div>
@@ -115,34 +116,22 @@
           <label for="jenispickup" class="form-label"><b>JENIS PICKUP</b></label
           ><br />
           <div class="radio-group" id="jenispickup">
-            <input
-              type="radio"
-              id="retur"
-              name="JENIS PICKUP"
-              value="RETUR ( PICK UP DARI TOKO TUJUAN GUDANG CUSTOMER)"
-            />
-            <label for="retur"
-              >RETUR ( PICK UP DARI TOKO TUJUAN GUDANG CUSTOMER)</label
-            ><br />
+            <input type="radio" id="retur" name="JENIS PICKUP" value="RETUR" />
+            <label for="retur">RETUR</label><br />
             <input
               type="radio"
               id="reguler"
               name="JENIS PICKUP"
-              value="REGULER ( PICK UP DARI GUDANG CUSTOMER TUJUAN TOKO CUSTOMER)"
+              value="REGULER"
             />
-            <label for="reguler"
-              >REGULER ( PICK UP DARI GUDANG CUSTOMER TUJUAN TOKO
-              CUSTOMER)</label
-            ><br />
+            <label for="reguler">REGULER</label><br />
             <input
               type="radio"
               id="mutasi"
               name="JENIS PICKUP"
-              value="MUTASI ( PICK UP DARI TOKO TUJUAN TOKO CUSTOMER)"
+              value="MUTASI"
             />
-            <label for="mutasi"
-              >MUTASI ( PICK UP DARI TOKO TUJUAN TOKO CUSTOMER)</label
-            >
+            <label for="mutasi">MUTASI</label>
           </div>
         </div>
         <div class="form-group">
